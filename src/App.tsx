@@ -8,7 +8,7 @@ export function App() {
     return (
         <div className="App">
             <main className="Block">
-                <Accordion data={dataForAccordion} multiple={false} expandSection="all" />
+                <Accordion data={dataForAccordion} multiple={true} expandSection="all" />
             </main>
         </div>
     );

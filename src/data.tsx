@@ -19,7 +19,8 @@ export const dataForAccordion = [
             name: 'Жарнул2',
             componentActions: (
                 <button
-                    onClick={() => {
+                    onClick={event => {
+                        event.stopPropagation();
                         alert('Действие');
                     }}
                 >

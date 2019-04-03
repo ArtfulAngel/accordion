@@ -18,7 +18,7 @@ type Props = {
 type TSections = 'one' | 'all';
 
 export function Accordion(props: Props) {
-    const { data, multiple, expandSection = 'one' } = props;
+    const { data, multiple, expandSection } = props;
 
     const getIds = () => {
         if (data.length > 0) {
@@ -46,15 +46,11 @@ export function Accordion(props: Props) {
         <div className="Accordion">
             {data.map(item => {
                 const isExpanded = checkExpand(String(item.id));
+
                 return (
                     <section key={item.id} className="Wrapper">
-                        <Header
-                            id={String(item.id)}
-                            header={item.header}
-                            onClick={handleClick}
-                            isExpanded={isExpanded}
-                        />
-                        <div className={`Body ${isExpanded ? 'Hidden' : ''}`}>{item.body}</div>
+                        <Header id={String(item.id)} header={item.header} onClick={handleClick} />
+                        <div className={`Body ${!isExpanded ? 'Hidden' : ''}`}>{item.body}</div>
                     </section>
                 );
             })}

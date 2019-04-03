@@ -5,13 +5,14 @@ import arrowDownIco from '../../icons/chevron-down.svg';
 type HeaderProps = {
     id: string;
     header: { name: string; componentActions?: React.ReactNode };
-    isExpanded: boolean;
     onClick: (value: string) => void;
 };
 
-export function Header({ id, header, isExpanded, onClick }: HeaderProps) {
+export function Header({ id, header, onClick }: HeaderProps) {
     const handleClick: React.MouseEventHandler<HTMLDivElement> = event => {
+        event.stopPropagation();
         const { value } = event.currentTarget.dataset;
+
         value && onClick(value);
     };
 
